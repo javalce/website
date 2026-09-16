@@ -23,4 +23,6 @@ interface Props extends HTMLAttributes<'a'>, LinkVariants {}
 const { variant, class: className, ...rest } = Astro.props;
 ---
 
-<a class={linkVariants({ variant, class: className })} {...rest}><slot /></a>
+<a class={linkVariants({ variant, class: className })} {...rest}>
+  <slot />
+</a>

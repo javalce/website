@@ -12,12 +12,10 @@ export const breadcrumbLink = tv({ base: 'transition-colors hover:text-foregroun
 const { class: className, asChild = false, ...rest } = Astro.props;
 ---
 
-{
-  asChild ? (
+{asChild ? (
+  <slot />
+) : (
+  <a class={breadcrumbLink({ class: className })} data-slot='breadcrumb-link' {...rest}>
     <slot />
-  ) : (
-    <a class={breadcrumbLink({ class: className })} data-slot='breadcrumb-link' {...rest}>
-      <slot />
-    </a>
-  )
-}
+  </a>
+)}

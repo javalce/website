@@ -19,27 +19,27 @@ const { class: className } = Astro.props;
   <BentoCardContent>
     <BentoCardTitle>Experiencia</BentoCardTitle>
     <div class='mt-4 space-y-2'>
-      {
-        workExperience.slice(0, 3).map(({ title, company, startDate, endDate }) => {
-          const startYear = new Date(startDate).getFullYear();
-          const endYear = endDate !== null ? new Date(endDate).getFullYear() : 'Actual';
+      {workExperience.slice(0, 3).map(({ title, company, startDate, endDate }) => {
+        const startYear = new Date(startDate).getFullYear();
+        const endYear = endDate !== null ? new Date(endDate).getFullYear() : 'Actual';
 
-          return (
-            <article>
-              <h3 class='text-lg font-semibold'>{title}</h3>
-              <p class='text-accent-foreground'>{company}</p>
-              <div class='m-0 p-0 text-sm text-muted-foreground'>
-                <time datetime={startDate}>{startYear}</time>
-                {' - '}
-                <time datetime={endDate}>{endYear}</time>
-              </div>
-            </article>
-          );
-        })
-      }
+        return (
+          <article>
+            <h3 class='text-lg font-semibold'>{title}</h3>
+            <p class='text-accent-foreground'>{company}</p>
+            <div class='m-0 p-0 text-sm text-muted-foreground'>
+              <time datetime={startDate}>{startYear}</time>
+              {' - '}
+              <time datetime={endDate}>{endYear}</time>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </BentoCardContent>
   <BentoCardFooter>
-    <Button variant='link' href='/experience'>Ver más</Button>
+    <Button variant='link' href='/experience'>
+      Ver más
+    </Button>
   </BentoCardFooter>
 </BentoCard>

@@ -29,22 +29,20 @@ if (Astro.slots.has('default')) {
 }
 ---
 
-{
-  asChild && hasChildren ? (
-    <div class:list={['dropdown-trigger', className]} data-slot='dropdown-trigger' data-as-child>
-      <slot />
-    </div>
-  ) : (
-    <button
-      class={dropdownTrigger({ class: className })}
-      type='button'
-      aria-haspopup='true'
-      aria-expanded='false'
-      data-state='closed'
-      data-slot='dropdown-trigger'
-      {...rest}
-    >
-      <slot />
-    </button>
-  )
-}
+{asChild && hasChildren ? (
+  <div class:list={['dropdown-trigger', className]} data-slot='dropdown-trigger' data-as-child>
+    <slot />
+  </div>
+) : (
+  <button
+    class={dropdownTrigger({ class: className })}
+    type='button'
+    aria-haspopup='true'
+    aria-expanded='false'
+    data-state='closed'
+    data-slot='dropdown-trigger'
+    {...rest}
+  >
+    <slot />
+  </button>
+)}

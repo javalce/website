@@ -19,17 +19,17 @@ const { class: className } = Astro.props;
   <BentoCardContent>
     <BentoCardTitle>Proyectos</BentoCardTitle>
     <div class='space-y-2'>
-      {
-        projects.slice(0, 3).map((project) => (
-          <article>
-            <h3 class='text-lg font-semibold'>{project.name}</h3>
-            <p class='line-clamp-1 text-muted-foreground'>{project.description}</p>
-          </article>
-        ))
-      }
+      {projects.slice(0, 3).map((project) => (
+        <article>
+          <h3 class='text-lg font-semibold'>{project.name}</h3>
+          <p class='line-clamp-1 text-muted-foreground'>{project.description}</p>
+        </article>
+      ))}
     </div>
   </BentoCardContent>
   <BentoCardFooter>
-    <Button variant='link' href='/projects'>Ver más</Button>
+    <Button variant='link' href='/projects'>
+      Ver más
+    </Button>
   </BentoCardFooter>
 </BentoCard>

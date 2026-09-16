@@ -49,18 +49,14 @@ const technologies = [
 ---
 
 <BentoCard class:list={['overflow-clip', className]}>
-  <div
-    class='mask-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0)_100%)]'
-  >
+  <div class='mask-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0)_100%)]'>
     <div class='flex h-16 w-max animate-[scroll_40s_linear_infinite] gap-4'>
-      {
-        technologies.concat(technologies).map(({ icon: Icon, name }) => (
-          <div class='group inline-flex items-center gap-2 px-4 py-2 transition-transform duration-300 ease-in-out select-none'>
-            <Icon class='isolate size-6 text-transparent group-hover:scale-130' />
-            <span class='text-lg font-medium text-primary'>{name}</span>
-          </div>
-        ))
-      }
+      {technologies.concat(technologies).map(({ icon: Icon, name }) => (
+        <div class='group inline-flex items-center gap-2 px-4 py-2 transition-transform duration-300 ease-in-out select-none'>
+          <Icon class='isolate size-6 text-transparent group-hover:scale-130' />
+          <span class='text-lg font-medium text-primary'>{name}</span>
+        </div>
+      ))}
     </div>
   </div>
 </BentoCard>
