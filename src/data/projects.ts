@@ -1,6 +1,6 @@
 import type { Project } from '@/types';
 
-export const projects: Project[] = [
+export const personalProjects: Project[] = [
   {
     name: '@javalce/eslint-config',
     description:
@@ -27,4 +27,10 @@ export const projects: Project[] = [
   },
 ];
 
-export const relevantProjects: Project[] = [...projects];
+export const relevantPersonalProjects: Project[] = personalProjects.filter((project) =>
+  ['@javalce/eslint-config', '@javalce/prettier-config', '@javalce/config'].includes(project.name),
+);
+
+export const professionalProjects: Project[] = [];
+
+export const relevantProfessionalProjects: Project[] = [];

@@ -3,7 +3,7 @@ import Hero from '@/components/hero.astro';
 import ProjectList from '@/components/project-list.astro';
 import SectionContainer from '@/components/section-container.astro';
 import TitleSection from '@/components/title-section.astro';
-import { relevantProjects } from '@/data/projects';
+import { relevantPersonalProjects, relevantProfessionalProjects } from '@/data/projects';
 import Layout from '@/layouts/layout.astro';
 ---
 
@@ -12,13 +12,18 @@ import Layout from '@/layouts/layout.astro';
     <Hero />
   </SectionContainer>
   <div class='space-y-24'>
-    <SectionContainer>
-      <TitleSection>Proyectos profesionales</TitleSection>
-    </SectionContainer>
-    <SectionContainer>
-      <TitleSection>Proyectos personales</TitleSection>
-      <ProjectList projects={relevantProjects} />
-    </SectionContainer>
+    {relevantProfessionalProjects.length > 0 && (
+      <SectionContainer>
+        <TitleSection>Proyectos profesionales</TitleSection>
+        <ProjectList projects={relevantProfessionalProjects} />
+      </SectionContainer>
+    )}
+    {relevantPersonalProjects.length > 0 && (
+      <SectionContainer>
+        <TitleSection>Proyectos personales</TitleSection>
+        <ProjectList projects={relevantPersonalProjects} />
+      </SectionContainer>
+    )}
   </div>
   <!-- <section class='grid w-full grid-cols-3 grid-rows-2 gap-2'>
       <Intro class='col-span-2 animate-fade-in-up delay-0' />
