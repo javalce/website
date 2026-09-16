@@ -1,6 +1,9 @@
 ---
 import Hero from '@/components/hero.astro';
+import ProjectList from '@/components/project-list.astro';
 import SectionContainer from '@/components/section-container.astro';
+import TitleSection from '@/components/title-section.astro';
+import { relevantProjects } from '@/data/projects';
 import Layout from '@/layouts/layout.astro';
 ---
 
@@ -8,11 +11,20 @@ import Layout from '@/layouts/layout.astro';
   <SectionContainer class='py-16 md:py-36'>
     <Hero />
   </SectionContainer>
+  <div class='space-y-24'>
+    <SectionContainer>
+      <TitleSection>Proyectos profesionales</TitleSection>
+    </SectionContainer>
+    <SectionContainer>
+      <TitleSection>Proyectos personales</TitleSection>
+      <ProjectList projects={relevantProjects} />
+    </SectionContainer>
+  </div>
   <!-- <section class='grid w-full grid-cols-3 grid-rows-2 gap-2'>
-    <Intro class='col-span-2 animate-fade-in-up delay-0' />
-    <About class='col-span-1 row-span-2 animate-fade-in-up delay-300' />
-    <Experience class='col-span-1 row-span-1 animate-fade-in-up delay-400' />
-    <Projects class='col-span-1 row-span-1 animate-fade-in-up delay-200' />
-    <TechnologiesSlider class='col-span-3 row-span-1 animate-fade-in-up delay-500' />
-  </section> -->
+      <Intro class='col-span-2 animate-fade-in-up delay-0' />
+      <About class='col-span-1 row-span-2 animate-fade-in-up delay-300' />
+      <Experience class='col-span-1 row-span-1 animate-fade-in-up delay-400' />
+      <Projects class='col-span-1 row-span-1 animate-fade-in-up delay-200' />
+      <TechnologiesSlider class='col-span-3 row-span-1 animate-fade-in-up delay-500' />
+      </section> -->
 </Layout>
