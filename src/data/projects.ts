@@ -26,3 +26,5 @@ export const projects: Project[] = [
     link: 'https://www.npmjs.com/package/@javalce/config',
   },
 ];
+
+export const relevantProjects: Project[] = [...projects];

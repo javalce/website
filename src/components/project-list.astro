@@ -1,9 +1,16 @@
 ---
+import type { Project } from '@/types';
+
 import GitHubIcon from '@/components/icons/github-icon.astro';
-import { projects } from '@/data/projects';
 
 import ExternalLinkIcon from './icons/external-link-icon.astro';
 import Button from './ui/button.astro';
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
 ---
 
 <div class='flex flex-col gap-y-16'>
