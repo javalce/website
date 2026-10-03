@@ -1,7 +1,7 @@
 allowBuilds:
   esbuild: false
-  msw: true
-  sharp: false
+  msw: false
+  sharp: true
   unrs-resolver: false
 minimumReleaseAge: 1440
 publicHoistPattern:
