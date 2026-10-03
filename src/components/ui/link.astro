@@ -1,28 +1,19 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import type { VariantProps } from 'tailwind-variants';
 
-import { tv } from 'tailwind-variants';
+import { cn } from '@/lib/utils';
 
-const linkVariants = tv({
-  base: 'text-primary underline-offset-4',
-  variants: {
-    variant: {
-      default: 'underline hover:text-primary/80',
-    },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-});
+interface Props extends HTMLAttributes<'a'> {}
 
-type LinkVariants = VariantProps<typeof linkVariants>;
-
-interface Props extends HTMLAttributes<'a'>, LinkVariants {}
-
-const { variant, class: className, ...rest } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 
-<a class={linkVariants({ variant, class: className })} {...rest}>
+<a
+  class={cn(
+    'text-primary-foreground underline underline-offset-4 hover:text-primary-foreground/80',
+    className,
+  )}
+  {...rest}
+>
   <slot />
 </a>
