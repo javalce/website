@@ -11,13 +11,13 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: 'Geist',
       subsets: ['latin'],
-      cssVariable: '--font-geist',
+      cssVariable: '--font-sans',
     },
     {
       provider: fontProviders.fontsource(),
       name: 'Geist Mono',
       subsets: ['latin'],
-      cssVariable: '--font-geist-mono',
+      cssVariable: '--font-mono',
     },
   ],
 });
