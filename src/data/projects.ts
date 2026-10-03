@@ -1,10 +1,11 @@
 import type { Project } from '@/types';
 
-export const personalProjects: Project[] = [
+export const projects: Project[] = [
   {
     name: '@javalce/eslint-config',
     description:
       'Configuración de ESLint para proyectos de JavaScript, TypeScript, React, Next.js, etc. con mis criterios de desarrollo predeterminados.',
+    type: 'personal',
     image: '/projects/eslint-config.webp',
     link: 'https://www.npmjs.com/package/@javalce/eslint-config',
     github: 'https://github.com/javalce/eslint-config',
@@ -13,6 +14,7 @@ export const personalProjects: Project[] = [
     name: '@javalce/prettier-config',
     description:
       'Configuración de Prettier para proyectos de JavaScript/TypeScript con mis reglas de estilo predeterminadas.',
+    type: 'personal',
     image: '/projects/prettier-config.webp',
     link: 'https://www.npmjs.com/package/@javalce/prettier-config',
     github: 'https://github.com/javalce/prettier-config',
@@ -21,16 +23,13 @@ export const personalProjects: Project[] = [
     name: '@javalce/config',
     description:
       'CLI for bootstrapping ESLint and Prettier configurations using my custom presets.',
+    type: 'personal',
     image: '/projects/config-cli.webp',
     github: 'https://github.com/javalce/config-cli',
     link: 'https://www.npmjs.com/package/@javalce/config',
   },
 ];
 
-export const relevantPersonalProjects: Project[] = personalProjects.filter((project) =>
+export const relevantProjects: Project[] = projects.filter((project) =>
   ['@javalce/eslint-config', '@javalce/prettier-config', '@javalce/config'].includes(project.name),
 );
-
-export const professionalProjects: Project[] = [];
-
-export const relevantProfessionalProjects: Project[] = [];

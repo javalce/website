@@ -20,6 +20,7 @@ export interface Project {
   image: string;
   github: string;
   link?: string;
+  type: 'personal' | 'professional';
 }
 
 export interface WorkExperience {

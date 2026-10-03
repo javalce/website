@@ -1,9 +1,11 @@
 ---
 import Hero from '@/components/hero.astro';
+import MoveRightIcon from '@/components/icons/move-right-icon.astro';
 import ProjectList from '@/components/project-list.astro';
 import SectionContainer from '@/components/section-container.astro';
 import TitleSection from '@/components/title-section.astro';
-import { relevantPersonalProjects, relevantProfessionalProjects } from '@/data/projects';
+import Button from '@/components/ui/button.astro';
+import { relevantProjects } from '@/data/projects';
 import Layout from '@/layouts/layout.astro';
 ---
 
@@ -12,16 +14,13 @@ import Layout from '@/layouts/layout.astro';
     <Hero />
   </SectionContainer>
   <div class='space-y-24'>
-    {relevantProfessionalProjects.length > 0 && (
+    {relevantProjects.length > 0 && (
       <SectionContainer>
-        <TitleSection>Proyectos profesionales</TitleSection>
-        <ProjectList projects={relevantProfessionalProjects} />
-      </SectionContainer>
-    )}
-    {relevantPersonalProjects.length > 0 && (
-      <SectionContainer>
-        <TitleSection>Proyectos personales</TitleSection>
-        <ProjectList projects={relevantPersonalProjects} />
+        <TitleSection>Proyectos</TitleSection>
+        <ProjectList projects={relevantProjects} />
+        <Button href='/projects' variant='link' class='mt-4 text-base' size='lg'>
+          Ver más <MoveRightIcon />
+        </Button>
       </SectionContainer>
     )}
   </div>
