@@ -1,0 +1,67 @@
+---
+import { LaptopIcon, MoonIcon, SunIcon } from '@lucide/astro';
+
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+---
+
+<Tabs data-theme-switcher>
+  <TabsList size='sm'>
+    <TabsTrigger value='light' class='p-0 aspect-square' title='Tema claro'>
+      <SunIcon />
+    </TabsTrigger>
+    <TabsTrigger value='dark' class='p-0 aspect-square' title='Tema oscuro'>
+      <MoonIcon />
+    </TabsTrigger>
+    <TabsTrigger value='system' class='p-0 aspect-square' title='Tema del sistema'>
+      <LaptopIcon />
+    </TabsTrigger>
+  </TabsList>
+</Tabs>
+
+<script>
+  const THEME_KEY = 'theme';
+
+  function getStoredTheme() {
+    return localStorage.getItem(THEME_KEY) ?? 'system';
+  }
+
+  function applyTheme() {
+    const storedTheme = getStoredTheme();
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const isDark = storedTheme === 'dark' || (storedTheme === 'system' && prefersDark.matches);
+
+    document.documentElement.classList.toggle('dark', isDark);
+  }
+
+  function handleThemeEvent(ev: Event) {
+    const el = ev.currentTarget as HTMLElement;
+    const theme = el.dataset.value as string;
+
+    if (theme === 'system') {
+      localStorage.removeItem(THEME_KEY);
+    } else {
+      localStorage.setItem(THEME_KEY, theme);
+    }
+
+    applyTheme();
+  }
+
+  function initThemeSwitcher() {
+    const tabsRoot = document.querySelector<HTMLElement>('[data-theme-switcher]')!;
+
+    tabsRoot.dispatchEvent(
+      new CustomEvent('tabs:set', {
+        detail: { value: getStoredTheme() },
+      }),
+    );
+
+    applyTheme();
+
+    tabsRoot.removeEventListener('tabs:change', handleThemeEvent);
+    tabsRoot.addEventListener('tabs:change', handleThemeEvent);
+  }
+
+  initThemeSwitcher();
+
+  document.addEventListener('astro:after-swap', initThemeSwitcher);
+</script>

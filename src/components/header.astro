@@ -1,7 +1,7 @@
 ---
 import { NAV_LINKS } from '@/site.config.ts';
 
-import ThemeToggle from './theme-toggle.astro';
+import ThemeSwitcher from './theme-switcher.astro';
 import NavLink from './ui/nav-link.astro';
 
 const currentPath = Astro.url.pathname;
@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
           active={currentPath === href || currentPath.startsWith(`${href}/`)}
         />
       ))}
-      <ThemeToggle />
+      <ThemeSwitcher />
     </nav>
   </div>
 </header>
