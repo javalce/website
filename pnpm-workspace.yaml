@@ -1,6 +1,5 @@
 allowBuilds:
   esbuild: false
-  msw: false
   sharp: true
   unrs-resolver: false
 minimumReleaseAge: 1440
