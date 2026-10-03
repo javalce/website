@@ -9,7 +9,7 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Geist Variable',
+      name: 'Geist',
       subsets: ['latin'],
       cssVariable: '--font-geist',
     },
