@@ -18,5 +18,6 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "tailwindCSS.classFunctions": ["tv", "cn"]
+  "prettier.documentSelectors": ["**/*.astro"],
+  "tailwindCSS.classFunctions": ["cva", "cn"]
 }
