@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 
 import Footer from '@/components/footer.astro';
@@ -22,11 +23,13 @@ const { pathname } = Astro.url;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
+    <Font cssVariable='--font-sans' preload />
+    <Font cssVariable='--font-mono' preload />
     <ClientRouter />
   </head>
-  <body class='grid min-h-dvh grid-rows-[auto_1fr_auto] gap-4 antialiased'>
+  <body class='grid min-h-dvh grid-rows-[auto_1fr] gap-4 antialiased'>
     <Header currentPage={pathname} />
-    <main class='mx-auto max-w-7xl space-y-8'>
+    <main class='mx-auto max-w-7xl space-y-8 px-4'>
       <slot />
     </main>
     <Footer />

@@ -1,33 +1,32 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import type { VariantProps } from 'tailwind-variants';
+import type { VariantProps } from 'class-variance-authority';
 
-import { tv } from 'tailwind-variants';
+import { cva } from 'class-variance-authority';
 
-const proseVariants = tv({
-  base: [
-    'prose dark:prose-invert',
-    'prose-headings:scroll-m-20 prose-headings:tracking-tight',
-    'prose-h2:text-3xl prose-h2:font-semibold prose-h2:first:mt-0',
-    'prose-p:text-muted-foreground prose-p:[&:not(:first-child)]:mt-6',
-  ],
-  variants: {
-    size: {
-      sm: 'prose-sm',
-      md: 'prose-base',
-      lg: 'prose-lg',
+import { cn } from '@/lib/utils';
+
+const proseVariants = cva(
+  'prose dark:prose-invert prose-headings:scroll-m-20 prose-headings:tracking-tight prose-h2:text-3xl prose-h2:font-semibold prose-h2:first:mt-0 prose-p:text-muted-foreground prose-p:[&:not(:first-child)]:mt-6',
+  {
+    variants: {
+      size: {
+        sm: 'prose-sm',
+        md: 'prose-base',
+        lg: 'prose-lg',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
     },
   },
-  defaultVariants: {
-    size: 'md',
-  },
-});
+);
 
 interface Props extends HTMLAttributes<'div'>, VariantProps<typeof proseVariants> {}
 
 const { size, class: className, ...rest } = Astro.props;
 ---
 
-<div class={proseVariants({ size, class: className })} {...rest}>
+<div class={cn(proseVariants({ size }), className)} {...rest}>
   <slot />
 </div>

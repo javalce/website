@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import { cn } from '@/lib/utils';
+
+type Props = HTMLAttributes<'section'>;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<section
+  class={cn('container mx-auto w-full scroll-m-20 md:max-w-2xl lg:max-w-4xl', className)}
+  {...rest}
+>
+  <slot />
+</section>

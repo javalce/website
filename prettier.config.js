@@ -5,7 +5,7 @@ export default {
   ...prettierConfig,
   plugins: [...prettierConfig.plugins, 'prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   tailwindStylesheet: './src/styles/global.css',
-  tailwindFunctions: ['tv', 'cn'],
+  tailwindFunctions: ['cva', 'cn'],
   overrides: [
     {
       files: '*.astro',

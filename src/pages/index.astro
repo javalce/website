@@ -1,18 +1,28 @@
 ---
-import About from '@/components/bento/about.astro';
-import Experience from '@/components/bento/experience.astro';
-import Intro from '@/components/bento/intro.astro';
-import Projects from '@/components/bento/projects.astro';
-import TechnologiesSlider from '@/components/bento/technologies-slider.astro';
+import { MoveRightIcon } from '@lucide/astro';
+
+import Hero from '@/components/hero.astro';
+import ProjectList from '@/components/project-list.astro';
+import SectionContainer from '@/components/section-container.astro';
+import TitleSection from '@/components/title-section.astro';
+import { Button } from '@/components/ui/button';
+import { relevantProjects } from '@/data/projects';
 import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout>
-  <section class='grid w-full grid-cols-3 grid-rows-2 gap-2'>
-    <Intro class='col-span-2 animate-fade-in-up delay-0' />
-    <About class='col-span-1 row-span-2 animate-fade-in-up delay-300' />
-    <Experience class='col-span-1 row-span-1 animate-fade-in-up delay-400' />
-    <Projects class='col-span-1 row-span-1 animate-fade-in-up delay-200' />
-    <TechnologiesSlider class='col-span-3 row-span-1 animate-fade-in-up delay-500' />
-  </section>
+  <SectionContainer class='py-16 md:py-36'>
+    <Hero />
+  </SectionContainer>
+  <div class='space-y-24'>
+    {relevantProjects.length > 0 && (
+      <SectionContainer>
+        <TitleSection>Proyectos</TitleSection>
+        <ProjectList projects={relevantProjects} />
+        <Button href='/projects' variant='link' class='mt-4' as='a'>
+          Ver más <MoveRightIcon />
+        </Button>
+      </SectionContainer>
+    )}
+  </div>
 </Layout>
