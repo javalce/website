@@ -3,6 +3,8 @@ allowBuilds:
   sharp: true
   unrs-resolver: false
 minimumReleaseAge: 1440
+overrides:
+  postcss-selector-parser@<7.1.6: ^7.1.6
 publicHoistPattern:
   - '*eslint*'
   - '*prettier*'
