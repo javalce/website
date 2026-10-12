@@ -3,6 +3,7 @@ import { NAV_LINKS } from '@/site.config.ts';
 
 import ThemeSwitcher from './theme-switcher.astro';
 import NavLink from './ui/nav-link.astro';
+import { Separator } from './ui/separator';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -17,6 +18,7 @@ const currentPath = Astro.url.pathname;
           active={currentPath === href || currentPath.startsWith(`${href}/`)}
         />
       ))}
+      <Separator orientation='vertical' />
       <ThemeSwitcher />
     </nav>
   </div>
