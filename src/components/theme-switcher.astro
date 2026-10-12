@@ -29,5 +29,13 @@ import { Button } from './ui/button';
 
   initThemeSwitcher();
 
-  document.addEventListener('astro:after-swap', initThemeSwitcher);
+  document.addEventListener('astro:after-swap', () => {
+    document.documentElement.classList.toggle(
+      'dark',
+      (localStorage.getItem('theme') ??
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark',
+    );
+
+    initThemeSwitcher();
+  });
 </script>
