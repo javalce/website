@@ -15,7 +15,7 @@ const { pathname } = Astro.url;
 ---
 
 <!doctype html>
-<html lang='es' class='dark'>
+<html lang='es'>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
@@ -26,6 +26,13 @@ const { pathname } = Astro.url;
     <Font cssVariable='--font-sans' preload />
     <Font cssVariable='--font-mono' preload />
     <ClientRouter />
+    <script is:inline>
+      document.documentElement.classList.toggle(
+        'dark',
+        (localStorage.getItem('theme') ??
+          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark',
+      );
+    </script>
   </head>
   <body class='grid min-h-dvh grid-rows-[auto_1fr] gap-4 antialiased'>
     <Header currentPage={pathname} />
