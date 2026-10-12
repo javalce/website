@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
-    "@data-slot/tabs": "1.1.1",
     "@lucide/astro": "1.55.0",
     "astro": "7.3.8",
     "class-variance-authority": "0.7.1",
